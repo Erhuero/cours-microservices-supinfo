@@ -1,0 +1,49 @@
+### Création d'un utilisateur
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Mirabeau",
+  "email": "jean@tanx.com",
+  "phone": "0645324567",
+  "password": "Motdepasse123"
+}
+
+### Lister les utilisateurs
+GET http://localhost:3000/users
+
+### Récupérer un utilisateur
+GET http://localhost:3000/users/1
+
+### Modifier le téléphone
+PUT http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+ "phone": "0634214321"
+}
+
+### Tester email en doublon (doit renvoyer 409)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "Marie",
+  "lastname": "Madeleine",
+  "email": "marie@bigbank.com",
+  "password": "autrepassword1"
+}
+
+### Tester validation (doit renvoyer 400)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "",
+  "email": "pasunemail",
+  "password": "court"
+}
+
+### Supprimer un utilisateur
+DELETE http://localhost:3000/users/1
