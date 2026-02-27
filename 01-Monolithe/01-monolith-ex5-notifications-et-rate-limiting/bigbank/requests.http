@@ -1,0 +1,74 @@
+### ===== USERS =====
+
+### Créer un utilisateur
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Mirabeau",
+  "email": "jean@bigbank.com",
+  "phone": "0645324567",
+  "password": "Motdepasse123"
+}
+
+### Créer un deuxième utilisateur
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "Marie",
+  "lastname": "Madeleine",
+  "email": "marie@bigbank.com",
+  "password": "autrepassword1"
+}
+
+### Lister les utilisateurs
+GET http://localhost:3000/users
+
+### Récupérer un utilisateur
+GET http://localhost:3000/users/1
+
+### ===== ACCOUNTS =====
+
+### Créer un compte courant (solde 1000)
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte Courant",
+  "type": "checking",
+  "balance": 1000
+}
+
+### Créer un compte épargne (solde 500)
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Épargne",
+  "type": "savings",
+  "balance": 500
+}
+
+### Lister les comptes du user 1
+GET http://localhost:3000/users/1/accounts
+
+### ===== TRANSACTIONS =====
+
+### Créer un transfert (notification dans le terminal)
+POST http://localhost:3000/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 1,
+  "toAccountId": 2,
+  "amount": 200,
+  "description": "Virement vers épargne"
+}
+
+### Lister toutes les transactions
+GET http://localhost:3000/transactions
+
+### Vérifier les soldes (compte 1 = 800, compte 2 = 700)
+GET http://localhost:3000/users/1/accounts

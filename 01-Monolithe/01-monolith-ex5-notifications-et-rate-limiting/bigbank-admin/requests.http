@@ -1,0 +1,12 @@
+### ===== ADMIN =====
+
+GET http://localhost:3001/admin/users
+
+### Détail d'un utilisateur + ses comptes (2 fetch : /users/1 + /users/1/accounts)
+GET http://localhost:3001/admin/users/1
+
+### Toutes les transactions (fetch -> GET http://localhost:3000/transactions)
+GET http://localhost:3001/admin/transactions
+
+### Vue complète : tous les users + comptes + transactions (multiple fetch)
+GET http://localhost:3001/admin/overview
