@@ -1,0 +1,142 @@
+### ===== USERS =====
+
+### Création d'un utilisateur
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Mirabeau",
+  "email": "jean@tanx.com",
+  "phone": "0645324567",
+  "password": "Motdepasse123"
+}
+
+### Lister les utilisateurs
+GET http://localhost:3000/users
+
+### Récupérer un utilisateur
+GET http://localhost:3000/users/1
+
+### Modifier le téléphone
+PUT http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "phone": "0634214321"
+}
+
+### Tester email en doublon (doit renvoyer 409)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "Marie",
+  "lastname": "Madeleine",
+  "email": "marie@bigbank.com",
+  "password": "autrepassword1"
+}
+
+### Tester validation (doit renvoyer 400)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "",
+  "email": "pasunemail",
+  "password": "court"
+}
+
+### Supprimer un utilisateur
+DELETE http://localhost:3000/users/1
+
+### ===== ACCOUNTS =====
+
+### Créer un compte courant pour le user 1 (solde 1000)
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte Courant",
+  "type": "checking",
+  "balance": 1000
+}
+
+### Créer un compte épargne pour le user 1 (solde 500)
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Épargne",
+  "type": "savings",
+  "balance": 500
+}
+
+### Lister les comptes du user 1
+GET http://localhost:3000/users/1/accounts
+
+### Détail du compte 1
+GET http://localhost:3000/users/1/accounts/1
+
+### Modifier le label du compte
+PUT http://localhost:3000/users/1/accounts/1
+Content-Type: application/json
+
+{
+  "label": "Compte principal"
+}
+
+### Supprimer un compte
+DELETE http://localhost:3000/users/1/accounts/2
+
+### ===== TRANSACTIONS =====
+
+### Créer un transfert (du compte 1 vers le compte 2)
+POST http://localhost:3000/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 1,
+  "toAccountId": 2,
+  "amount": 10,
+  "description": "Virement vers épargne"
+}
+
+### Lister toutes les transactions
+GET http://localhost:3000/transactions
+
+### Transactions d'un compte spécifique
+GET http://localhost:3000/transactions/account/1
+
+### Vérifier les soldes (compte 1 = 800, compte 2 = 700)
+GET http://localhost:3000/users/1/accounts
+
+### ===== TESTS ERREURS TRANSACTIONS =====
+
+### Transfert vers le même compte (doit renvoyer 400)
+POST http://localhost:3000/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 1,
+  "toAccountId": 1,
+  "amount": 20
+}
+
+### Solde insuffisant (doit renvoyer 400)
+POST http://localhost:3000/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 1,
+  "toAccountId": 2,
+  "amount": 999999
+}
+
+### ===== NOTIFICATIONS =====
+
+### Lister toutes les notifications
+GET http://localhost:3000/notifications
+
+### Notifications du compte 1 (emetteur)
+GET http://localhost:3000/notifications/account/1
