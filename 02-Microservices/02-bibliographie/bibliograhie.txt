@@ -1,0 +1,436 @@
+Documentation - Chapitre 02 : Microservices
+
+Architecture Microservices - Culture generale
+
+Martin Fowler - Article fondateur sur les Microservices
+https://martinfowler.com/articles/microservices.html
+Lire les 9 caracteristiques en entier, du debut a la fin de l'article.
+
+Martin Fowler - Microservice Prerequisites
+https://martinfowler.com/bliki/MicroservicePrerequisites.html
+Lire la page entiere. Explique ce qu'il faut maitriser avant de se lancer.
+
+Martin Fowler - Microservice Trade-Offs
+https://martinfowler.com/articles/microservice-trade-offs.html
+Lire la page entiere. Vous pouvez voir les vantages et inconvenients concrets.
+
+Pattern Database per Service
+https://microservices.io/patterns/data/database-per-service.html
+Prenez connaissance de Problem, Solution, Examples, Resulting context, Related patterns.
+
+Pattern API Gateway
+https://microservices.io/patterns/apigateway.html
+Vous pouvez regarder les parties suivantes: Problem, Forces, Solution, Examples, Related patterns.
+
+Pattern Decompose by Business Capability
+https://microservices.io/patterns/decomposition/decompose-by-business-capability.html
+Lire la page entiere. Explique comment decouper un monolithe.
+
+Catalogue complet des patterns microservices
+https://microservices.io/patterns/index.html
+Parcourir les categories Decomposition, Communication style, Data management, Security.
+
+12-Factor App
+https://12factor.net/
+Lire au minimum :
+https://12factor.net/codebase (Codebase)
+https://12factor.net/config (Config)
+https://12factor.net/backing-services (Backing services)
+https://12factor.net/port-binding (Port binding)
+https://12factor.net/concurrency (Concurrency)
+https://12factor.net/disposability (Disposability)
+
+REST API Design - Conventions HTTP
+https://restfulapi.net/http-methods/
+Lire les sections GET, POST, PUT, DELETE avec les codes de retour associes.
+
+HTTP Status Codes - Reference complete
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
+Lire au minimum : 200, 201, 400, 401, 403, 404, 409, 429, 500.
+
+
+Construction avec Node.js
+
+Documentation officielle Node.js 18
+https://nodejs.org/docs/latest-v18.x/api/
+
+Modules ECMAScript (import/export)
+https://nodejs.org/docs/latest-v18.x/api/esm.html
+Lire Introduction et import Specifiers. Notre projet utilise type module dans package.json.
+
+Fetch API integree dans Node.js 18+
+https://nodejs.org/docs/latest-v18.x/api/globals.html#fetch
+Chercher fetch dans la page. Comprendre que Node 18+ inclut fetch nativement.
+
+package.json - Champs principaux
+https://docs.npmjs.com/cli/v10/configuring-npm/package-json
+Lire les sections name, version, type, scripts, dependencies.
+
+
+Express.js
+
+Installation
+https://expressjs.com/en/starter/installing.html
+Lire la page entiere.
+
+Hello World
+https://expressjs.com/en/starter/hello-world.html
+Cette page vous aidera à lancer votre premier serveur Express minimal.
+
+Routing
+https://expressjs.com/en/guide/routing.html
+Lire toute la page. Sections importantes : Route parameters, express.Router, Route handlers.
+
+Using middleware
+https://expressjs.com/en/guide/using-middleware.html
+Intéressant à connaître : Application-level middleware, Router-level middleware, Error-handling middleware.
+
+Error handling
+https://expressjs.com/en/guide/error-handling.html
+Lire toute la page. Comprendre le middleware a 4 arguments (err, req, res, next).
+
+API Reference - express()
+https://expressjs.com/en/4x/api.html#express
+Lire express.json() et express.Router([options]). Chercher mergeParams.
+
+API Reference - Request
+https://expressjs.com/en/4x/api.html#req
+Lire req.params, req.query, req.body, req.headers, req.get().
+
+API Reference - Response
+https://expressjs.com/en/4x/api.html#res
+Lire res.status(), res.json(), res.send(), res.sendStatus().
+
+
+Validation avec Zod (complément d'infos)
+
+Page principale et introduction
+https://zod.dev/?id=introduction
+Lire Introduction et Installation
+
+Les essentiels de Zod
+https://zod.dev/?id=basic-usage
+Comprendre z.string(), z.number(), z.boolean(), z.enum() et schema.parse()
+
+Objects avec Zod
+https://zod.dev/?id=objects
+
+Les built-in String validation
+https://zod.dev/?id=strings
+
+Pour la validation des chiffres
+https://zod.dev/?id=numbers
+
+Enums
+https://zod.dev/?id=enums
+Comprendre z.enum(['valeur1', 'valeur2']).
+
+Error handling
+https://zod.dev/?id=error-handling
+Regardez la structure ZodError et le tableau err.errors.
+
+
+Fetch API (communication inter-services)
+
+MDN - Using the Fetch API
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+Lire toutes les sections dans l'ordre (de préference): Making a request, Setting the method,
+Setting headers, Sending a body, Reading the response, Checking response status.
+
+MDN - Request
+https://developer.mozilla.org/en-US/docs/Web/API/Request
+Lire les proprietes method, headers, body et le constructeur
+
+MDN - Response
+https://developer.mozilla.org/en-US/docs/Web/API/Response
+Lire les proprietes ok, status, statusText et les methodes json(), text().
+
+MDN - Headers
+https://developer.mozilla.org/en-US/docs/Web/API/Headers
+Lire le constructeur, append(), get(), set(). Utilise pour propager x-user-id et x-user-role.
+
+
+Documentation de Swagger et OpenAPI 3.0 (standard dans les DSI de type MGEN et Harmonie Mutuelle)
+
+Vue globale et specification OpenAPI 3.0
+https://swagger.io/docs/specification/v3_0/about/
+Rappel de ce qu'est OpenAPI.
+
+Structure de base d'un document OpenAPI
+https://swagger.io/docs/specification/v3_0/basic-structure/
+Lire et connaître: openapi, info, servers, paths, components.
+
+Les paths et operations
+https://swagger.io/docs/specification/v3_0/paths-and-operations/
+Lire : path items, operation objects (get, post, put, delete), operationId, tags.
+
+Describing Parameters
+https://swagger.io/docs/specification/v3_0/describing-parameters/
+Lire : Path Parameters (in: path), Query Parameters (in: query), Header Parameters (in: header).
+Bon rappel de comment passer les infos comme des valeurs dans les url
+
+Describing Request Body
+https://swagger.io/docs/specification/v3_0/describing-request-body/
+Lire : content, application/json, schema, required.
+
+Describing Responses
+https://swagger.io/docs/specification/v3_0/describing-responses/
+Apprendre codes HTTP (200, 201, 400, 404, 500), description, content, schema. (ce sera demandé pendant la soutenance)
+
+Data Models / Schemas
+https://swagger.io/docs/specification/v3_0/data-models/
+
+swagger-jsdoc (Node.js)
+https://github.com/Surnet/swagger-jsdoc/blob/master/README.md
+Lire Getting started et la syntaxe des annotations @openapi dans les commentaires JSDoc (pas demandé pendant la soutenance car trop spécifique)
+
+swagger-jsdoc - Exemples d'annotations
+https://github.com/Surnet/swagger-jsdoc/blob/master/docs/GETTING-STARTED.md
+Exemples concrets de documentation de routes (pas demandé pendant la soutenance car trop spécifique)
+
+swagger-ui-express (Node.js) - README
+https://github.com/scottie1984/swagger-ui-express/blob/master/README.md
+Lire Usage : swaggerUi.serve et swaggerUi.setup(specs).
+
+Flasgger (Python Flask) - README
+https://github.com/flasgger/flasgger/blob/master/README.md
+Regardezz Getting started et Using docstrings as specification.
+
+Flasgger - Exemples
+https://github.com/flasgger/flasgger/tree/master/examples
+Parcourir les exemples pour voir differentes facons de documenter les routes Flask.
+
+springdoc-openapi (Java Spring Boot) : Getting Started (pas demandé pour la soutenance car c'est pas un cours Java/Spring Boot sauf si vous choisissez de faire un microservice)
+https://springdoc.org/#getting-started
+Lire Getting Started et les proprietes de configuration.
+
+springdoc-openapi : Swagger UI properties (pas demandé pour la soutenance car c'est pas un cours Java/Spring Boot)
+https://springdoc.org/#swagger-ui-properties
+Lire pour configurer les chemins dans application.properties.
+
+Editeur Swagger en ligne (pour tester la syntaxe) (pas demandé pour la soutenance)
+https://editor.swagger.io/
+Outil interactif pour ecrire et valider sa specification OpenAPI.
+
+
+Python (pas demandé pour la soutenance car c'est pas un cours Python/Flask sauf si vous choisissez de faire un microservice)
+
+Documentation Python 3 : Tutorial
+https://docs.python.org/3/tutorial/index.html
+Lire les chapitres 3 (Introduction), 4 (Control Flow), 5 (Data Structures).
+
+Python : rappels sur les dictionnaires
+https://docs.python.org/3/tutorial/datastructures.html#dictionaries
+Lire la section sur les dicts. Utilises partout dans le fraud-detection-service
+
+Filtrage
+https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
+Lire la section. Utilisees pour filtrer les alertes et l'historique.
+
+Python : module datetime
+https://docs.python.org/3/library/datetime.html
+Lire datetime.now(), datetime.fromisoformat(), timedelta.
+Utilise pour horodater les analyses et calculer la frequence des transactions.
+
+Module uuid
+https://docs.python.org/3/library/uuid.html
+Utilise pour generer les identifiants uniques des alertes.
+
+Gestionnaire de paquets Python
+https://pip.pypa.io/en/stable/getting-started/
+Lire Getting Started,,comprendre pip install flask flasgger.
+
+Rappel des essentiels sur les requirements.txt
+https://pip.pypa.io/en/stable/reference/requirements-file-format/
+Lire la page pour comprendre le format du fichier de dependances
+
+
+Flask (pas demandé si vous ne prenez
+
+Essentiels pour débuter
+https://flask.palletsprojects.com/en/stable/quickstart/
+Lire dans l'ordre : A Minimal Application, Routing, Variable Rules, HTTP Methods, The Request Object, About Responses.
+
+API Reference : flask.Request
+https://flask.palletsprojects.com/en/stable/api/#flask.Request
+Lire get_json(), args, headers, method.
+
+API Reference : flask.jsonify
+https://flask.palletsprojects.com/en/stable/api/#flask.json.jsonify
+Comprendre comment renvoyer du JSON avec le bon Content-Type.
+
+API Reference : flask.make_response (optionnel)
+https://flask.palletsprojects.com/en/stable/api/#flask.make_response
+Comprendre comment controler le status code de la reponse
+
+Error Handling
+https://flask.palletsprojects.com/en/stable/errorhandling/
+Lire les sections sur @app.errorhandler et abort()
+
+
+Java et Spring Boot (pour le contexte spring boot utilisé comme exemple de microservice)
+
+Getting Started
+https://docs.spring.io/spring-boot/getting-started/index.html
+Lire Introducing Spring Boot et Developing Your First Application.
+
+Chapitre sur la structure du code
+https://docs.spring.io/spring-boot/how-to/structuring-your-code.html
+Comprendre la structure des packages et le placement de @SpringBootApplication.
+
+application.properties
+https://docs.spring.io/spring-boot/appendix/application-properties/index.html
+Chercher : server.port, spring.application.name.
+
+Annotations
+https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller.html
+
+Request Mapping
+https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-requestmapping.html
+@RequestMapping, @GetMapping, @PostMapping, produces.
+
+Handler Methods
+https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods.html
+Lire Method Arguments et Return Values.
+
+@RequestParam
+https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/requestparam.html
+Comprendre required, defaultValue.
+
+@PathVariable
+https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/pathvariable.html
+Comprendre la correspondance avec les variables dans @RequestMapping.
+
+@RequestBody
+https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/requestbody.html
+Comprendre la deserialisation automatique du JSON vers un objet Java.
+
+ResponseEntity
+https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/responseentity.html
+Comprendre ResponseEntity.ok(), ResponseEntity.status(201).body().
+
+Endpoints
+https://docs.spring.io/spring-boot/reference/actuator/endpoints.html
+Lire Exposing Endpoints et le endpoint /actuator/health.
+
+Health
+https://docs.spring.io/spring-boot/reference/actuator/endpoints.html#actuator.endpoints.health
+Lire pour comprendre les health indicators et le format de reponse.
+
+
+Lombok (simplifie la notation)
+
+Page des features
+https://projectlombok.org/features/
+Vue d'ensemble de toutes les annotations disponibles.
+
+@Data
+https://projectlombok.org/features/Data
+Genere getters, setters, toString, equals, hashCode. Lire la page entiere.
+
+@Getter et @Setter
+https://projectlombok.org/features/GetterSetter
+Comprendre la generation individuelle par champ ou par classe.
+
+Constructors (@AllArgsConstructor, @NoArgsConstructor)
+https://projectlombok.org/features/constructor
+Lire la page entiere. Comprendre les 3 variantes.
+
+Installation avec Maven
+https://projectlombok.org/setup/maven
+Lire pour comprendre la configuration dans pom.xml. Le scope doit etre provided.
+
+
+Maven (optionnel)
+
+Introduction au POM
+https://maven.apache.org/guides/introduction/introduction-to-the-pom.html
+Lire What is a POM, Minimal POM, Project Inheritance.
+
+Dependency Mechanism
+https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
+Lire Dependency Scope : compile, provided, runtime, test, system.
+
+Getting Started in 5 Minutes
+https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+Lire la page entiere pour comprendre le cycle de vie de base.
+
+Build Lifecycle
+https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+Lire les phases : validate, compile, test, package, install, deploy.
+
+Spring Boot Maven Plugin - Running
+https://docs.spring.io/spring-boot/maven-plugin/using.html
+Comprendre mvn spring-boot:run pour lancer le service en developpement.
+
+Spring Boot Maven Plugin - Packaging
+https://docs.spring.io/spring-boot/maven-plugin/packaging-oss.html
+Comprendre mvn package pour creer le JAR executable.
+
+
+Pagination REST
+
+Query string (URL Parameters)
+https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+Comprendre le concept de query parameters (?page=1&limit=10).
+
+Best Practices Pagination REST
+https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/
+Lire les sections Offset Pagination et Page-Based Pagination.
+
+
+Rate Limiting
+
+express-rate-limit (README)
+https://github.com/express-rate-limit/express-rate-limit/blob/main/readme.md
+Lire Getting Started et Configuration
+
+express-rate-limit : configuration Reference
+https://express-rate-limit.mintlify.app/reference/configuration
+Reference de toutes les options : windowMs, max, message, statusCode, standardHeaders.
+
+MDN : HTTP 429 Too Many Requests
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/429
+Comprendre le code de retour et le header Retry-After.
+
+
+Controle d'accès par roles (RBAC)
+
+Auth0 - What is RBAC
+https://auth0.com/docs/manage-users/access-control/rbac
+Lire la page entiere pour comprendre le concept general.
+
+HTTP Headers
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers
+Comprendre le concept des headers HTTP personnalises (x-user-id, x-user-role).
+
+OWASP - Access Control Cheat Sheet
+https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html
+Lire pour comprendre les bonnes pratiques de controle d'acces.
+
+
+Outils de test
+
+Postman - Sending Requests
+https://learning.postman.com/docs/sending-requests/requests/
+Lire : URL, Method, Headers, Body (raw JSON).
+
+curl - Manuel
+https://curl.se/docs/manpage.html
+Chercher les options : -X (method), -H (header), -d (body data), -i (show headers).
+
+REST Client (extension VS Code)
+https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+Lire la description pour comprendre le format des fichiers .http.
+
+MDN - HTTP Request Methods
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods
+Lire GET, POST, PUT, DELETE, PATCH. Comprendre les differences et l'idempotence.
+
+MDN - HTTP Response Status Codes
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
+Reference complete de tous les codes de statut HTTP.
+
+JSON.org - Introduction au format JSON
+https://www.json.org/json-en.html
+Lire la page entiere. Comprendre les types : string, number, object, array, boolean, null.
