@@ -1,1 +1,9 @@
 node_modules/
+venv/
+target/
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.env
+package-lock.json
