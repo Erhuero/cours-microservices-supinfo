@@ -1,0 +1,14 @@
+### Vérifier que l'admin tourne
+GET http://localhost:3001/
+
+### Voir tous les users (via l'API BigBank)
+GET http://localhost:3001/admin/users
+
+### Voir un user avec ses comptes
+GET http://localhost:3001/admin/users/1
+
+### Voir toutes les transactions
+GET http://localhost:3001/admin/transactions
+
+### Vue complète (users + comptes + transactions)
+GET http://localhost:3001/admin/overview
