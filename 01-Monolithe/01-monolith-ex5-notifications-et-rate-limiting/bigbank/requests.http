@@ -56,19 +56,16 @@ GET http://localhost:3000/users/1/accounts
 
 ### ===== TRANSACTIONS =====
 
-### Créer un transfert (notification dans le terminal)
+### Lister toutes les transactions
+GET http://localhost:3000/transactions
+
+### 5. Faire un virement (de compte 1 vers compte 2)
 POST http://localhost:3000/transactions
 Content-Type: application/json
 
 {
   "fromAccountId": 1,
   "toAccountId": 2,
-  "amount": 200,
-  "description": "Virement vers épargne"
+  "amount": 50,
+  "description": "Remboursement restaurant"
 }
-
-### Lister toutes les transactions
-GET http://localhost:3000/transactions
-
-### Vérifier les soldes (compte 1 = 800, compte 2 = 700)
-GET http://localhost:3000/users/1/accounts

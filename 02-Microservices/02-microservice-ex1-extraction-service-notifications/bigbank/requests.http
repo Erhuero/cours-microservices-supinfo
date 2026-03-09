@@ -1,0 +1,109 @@
+### Création d'un utilisateur
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Mirabeau",
+  "email": "jean@bigbank.com",
+  "phone": "0645324567",
+  "password": "Motdepasse123"
+}
+
+### Creer un deuxieme utilisateur
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+"firstname": "Marie",
+"lastname": "Martin",
+"email": "marie@bigbank.fr",
+"password": "sonmotdepasse456"
+}
+
+
+###  Creer un compte pour Jean (userId = 1)
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte courant Jean",
+  "type": "checking"
+}
+
+###  Creer un compte pour Marie (userId = 2)
+POST http://localhost:3000/users/2/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte courant Marie",
+  "type": "checking"
+}
+### Lister les utilisateurs
+GET http://localhost:3000/users
+
+### Récupérer un utilisateur
+GET http://localhost:3000/users/1
+
+### Supprimer un utilisateur
+DELETE http://localhost:3000/users/1
+
+### ===== ACCOUNTS ======
+
+### Faire un virement (de compte 1 vers compte 2)
+POST http://localhost:3000/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 1,
+  "toAccountId": 2,
+  "amount": 5,
+  "description": "Remboursement restaurant"
+}
+### Créer un compte pour le user 1
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Épargne",
+  "type": "savings"
+}
+
+###Lister les comptes du user 1
+GET http://localhost:3000/users/1/accounts
+
+### Détail du compte 1
+GET http://localhost:3000/users/1/accounts/1
+
+### Modifier le label du compte
+PUT http://localhost:3000/users/1/accounts/1
+Content-Type: application/json
+
+{
+  "label": "Compte principal"
+}
+
+### Supprimer un compte
+DELETE http://localhost:3000/users/1/accounts/2
+
+### ===== TRANSACTIONS ======
+
+### Créer uun transfert (du compte 1 vers le compte 2)
+POST http://localhost:3000/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 1,
+  "toAccountId": 2,
+  "amount": 60,
+  "description": "Virement vers épargne"
+}
+
+### Lister toutes les transactions
+GET http://localhost:3000/transactions
+
+### Transactions d'un compte spécifique
+GET http://localhost:3000/transactions/account/1
+
+### Vérifier les soldes (le compte 1 devrait avoir 50, le compte 2 +150)
+GET http://localhost:3000/users/1/accounts
