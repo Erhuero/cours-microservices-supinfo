@@ -1,0 +1,89 @@
+### Créer un utilisateur
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "firstname": "Alice",
+  "lastname": "Dupont",
+  "email": "alice@test.com",
+  "password": "pass1234"
+}
+
+### Créer compte 1
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte Courant",
+  "type": "checking"
+}
+
+### Créer compte 2
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Livret A",
+  "type": "savings"
+}
+
+### Créer compte 3
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte Joint",
+  "type": "checking"
+}
+
+### Créer compte 4
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "PEL",
+  "type": "savings"
+}
+
+### Créer compte 5
+POST http://localhost:3000/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte Pro",
+  "type": "checking"
+}
+
+### ===== TEST PAGINATION =====
+
+### Page 1 (2 résultats par page)
+GET http://localhost:3000/users/1/accounts?page=1&limit=2
+
+### Page 2
+GET http://localhost:3000/users/1/accounts?page=2&limit=2
+
+### Page 3 (1 seul résultat)
+GET http://localhost:3000/users/1/accounts?page=3&limit=2
+
+### Tous les comptes (sans pagination)
+GET http://localhost:3000/users/1/accounts
+
+### ===== TEST RATE LIMITING =====
+### Cliquer rapidement plusieurs fois sur "Send Request"
+### Au bout de X requêtes → HTTP 429 Too Many Requests
+
+### Requête rapide 1
+GET http://localhost:3000/users
+
+### Requête rapide 2
+GET http://localhost:3000/users
+
+### Requête rapide 3
+GET http://localhost:3000/users
+
+### Requête rapide 4
+GET http://localhost:3000/users
+
+### Requête rapide 5
+GET http://localhost:3000/users
