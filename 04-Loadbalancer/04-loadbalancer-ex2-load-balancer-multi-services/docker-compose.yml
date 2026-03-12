@@ -1,0 +1,95 @@
+version: "3.9"
+
+services:
+  user-service-1:
+    build: ./user-service
+    environment:
+      - PORT=3004
+
+  user-service-2:
+    build: ./user-service
+    environment:
+      - PORT=3004
+
+  user-lb:
+    build: ./user-lb
+    ports:
+      - "3010:3010"
+    depends_on:
+      - user-service-1
+      - user-service-2
+
+  account-service:
+    build: ./account-service
+    ports:
+      - "3003:3003"
+    environment:
+       - PORT=3003
+       - DATABASE_URL=postgresql://bigbank:bigbank@db:5432/bigbank
+    depends_on:
+      - db
+
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+
+  transaction-service:
+    build: ./transaction-service
+    ports:
+      - "3005:3005"
+    environment:
+      - PORT=3005
+      - ACCOUNT_URL=http://account-service:3003/accounts
+      - NOTIFICATION_URL=http://notification-service:3002/notify
+
+  bigbank:
+    build: ./bigbank
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - USER_URL=http://user-lb:3010/users
+      - ACCOUNT_URL=http://account-service:3003/accounts
+      - NOTIFICATION_URL=http://notification-service:3002/notify
+    depends_on:
+      - user-lb
+      - account-service
+      - notification-service
+
+  bigbank-admin:
+    build: ./bigbank-admin
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - USER_URL=http://user-lb:3010/users
+      - ACCOUNT_URL=http://account-service:3003/accounts
+      - TRANSACTION_URL=http://transaction-service:3005/transactions
+    depends_on:
+      - user-lb
+      - account-service
+      - transaction-service
+
+  frontend:
+    build: ./frontend
+    ports:
+      - 8080:80
+    depends_on:
+      - bigbank
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: bigbank
+      POSTGRES_PASSWORD: bigbank
+      POSTGRES_DB: bigbank
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

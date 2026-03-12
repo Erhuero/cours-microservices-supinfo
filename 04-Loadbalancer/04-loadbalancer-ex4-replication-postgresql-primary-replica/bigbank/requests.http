@@ -1,0 +1,114 @@
+```
+### ===== LOAD BALANCER Ex-4 : PostgreSQL primary et replica =====
+### ECRITURE vers primaryPool vers db
+
+### ========== USERS ==========
+
+POST http://localhost:3030/users
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Mirabeau",
+  "email": "jean@bigbank.com",
+  "phone": "0645324567",
+  "password": "Motdepasse123"
+}
+
+###
+
+POST http://localhost:3030/users
+Content-Type: application/json
+
+{
+  "firstname": "Marie",
+  "lastname": "Madeleine",
+  "email": "mare@bigbank.com",
+  "password": "autrepassword1"
+}
+
+###
+
+GET http://localhost:3030/users
+
+###
+
+GET http://localhost:3030/users/1
+
+### ========== ACCOUNTS (avec replication) ==========
+
+POST http://localhost:3030/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte courant",
+  "type": "checking"
+}
+
+###
+
+POST http://localhost:3030/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Epargne",
+  "type": "savings"
+}
+
+###
+
+GET http://localhost:3030/users/1/accounts
+
+###
+
+GET http://localhost:3030/users/1/accounts/1
+
+###
+
+PUT http://localhost:3030/users/1/accounts/1
+Content-Type: application/json
+
+{
+  "label": "Compte principal"
+}
+
+###
+
+GET http://localhost:3030/users/1/accounts/1
+
+### ========== TRANSACTIONS ==========
+
+POST http://localhost:3030/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 1,
+  "toAccountId": 2,
+  "amount": 25,
+  "description": "Test replication Primary/Replica Ex-4"
+}
+
+### Attendu apres virement : compte 1 = 75, compte 2 = 125
+
+GET http://localhost:3030/users/1/accounts
+
+###
+
+GET http://localhost:3030/transactions
+
+###
+
+GET http://localhost:3030/transactions/account/1
+
+### ========== ADMIN (:3001) ==========
+
+GET http://localhost:3001/admin/overview
+
+###
+
+GET http://localhost:3001/admin/users/1
+
+###
+
+GET http://localhost:3001/admin/transactions
+```
