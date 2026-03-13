@@ -1,0 +1,77 @@
+### ============================================
+### CHAPITRE 05 - RABBITMQ - EXERCICE 3
+### Queue entre bigbank et transaction-service
+### ============================================
+
+### ----- SETUP : Creer un utilisateur -----
+POST http://localhost:3030/users
+Content-Type: application/json
+
+{
+  "firstname": "Test",
+  "lastname": "Queue",
+  "email": "test@banhhg.com",
+  "password": "password123"
+}
+
+### ----- SETUP : Creer compte A (checking) -----
+POST http://localhost:3030/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte Courant",
+  "type": "checking"
+}
+
+### ----- SETUP : Creer compte B (savings) -----
+POST http://localhost:3030/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte Epargne",
+  "type": "savings"
+}
+
+### ----- TEST RABBITMQ : Envoyer une transaction via la queue -----
+### ATTENDU : 202 Accepted (traitement asynchrone via RabbitMQ)
+### AVANT : bigbank publie dans la queue "transactions"
+### APRES : transaction-service consomme et traite le message
+POST http://localhost:3030/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 3,
+  "toAccountId": 4,
+  "amount": 25,
+  "description": "Test RabbitMQ - transfert via queue"
+}
+
+### ----- VERIFICATION : Lister les transactions -----
+### Les transactions sont stockees dans transaction-service (en memoire)
+GET http://localhost:3030/transactions
+
+### ----- VERIFICATION : Verifier le solde du compte A -----
+### ATTENDU : balance = 75 (100 - 25)
+GET http://localhost:3030/users/1/accounts
+
+### ----- VERIFICATION : Transactions par compte -----
+GET http://localhost:3030/transactions/account/3
+
+### ----- TEST RESILIENCE : Transaction avec solde insuffisant -----
+### ATTENDU : 202 Accepted (acceptee dans la queue)
+### MAIS : transaction-service va nack et remettre dans la queue
+### car le solde est insuffisant (le message reste dans la queue)
+POST http://localhost:3030/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 3,
+  "toAccountId": 4,
+  "amount": 999999,
+  "description": "Test solde insuffisant"
+}
+
+### ----- MANAGEMENT UI : Interface web RabbitMQ -----
+### Ouvrir http://localhost:15672 dans le navigateur
+### Login : guest / guest
+### Verifier la queue "transactions" dans l'onglet Queues

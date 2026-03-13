@@ -1,0 +1,110 @@
+### ============================================
+### CHAPITRE 05 - RABBITMQ - EXERCICES 3, 4, 5
+### Double queue : transactions + notifications
+### ============================================
+
+### ----- SETUP : Creer un utilisateur -----
+POST http://localhost:3030/users
+Content-Type: application/json
+
+{
+  "firstname": "Test",
+  "lastname": "RabbitMQ",
+  "email": "test@rabbitmq.com",
+  "password": "password123"
+}
+
+### ----- SETUP : Creer compte A (checking) -----
+### Adapter le userId si besoin
+POST http://localhost:3030/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte Courant",
+  "type": "checking"
+}
+
+### ----- SETUP : Creer compte B (savings) -----
+POST http://localhost:3030/users/1/accounts
+Content-Type: application/json
+
+{
+  "label": "Compte Epargne",
+  "type": "savings"
+}
+
+### ============================================
+### EX-3 : Queue "transactions"
+### ============================================
+
+### Envoyer une transaction via la queue
+### ATTENDU : 202 Accepted (asynchrone)
+### LOGS bigbank : "Transaction publiee dans la queue"
+### LOGS transaction-service : "Transaction recue" + "Transaction traitee avec succes"
+### Adapter fromAccountId et toAccountId selon les ids crees
+POST http://localhost:3030/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 1,
+  "toAccountId": 2,
+  "amount": 25,
+  "description": "Ex-3 : transfert via queue transactions"
+}
+
+### Lister toutes les transactions
+GET http://localhost:3030/transactions
+
+### Verifier les soldes des comptes
+GET http://localhost:3030/users/1/accounts
+
+### Transactions par compte
+GET http://localhost:3030/transactions/account/1
+
+### ============================================
+### EX-4 : Queue "notifications"
+### ============================================
+
+### Envoyer une transaction (teste les 2 queues en cascade)
+### ATTENDU : 202 Accepted
+### LOGS transaction-service : "Notification publiee dans la queue notifications"
+### LOGS notification-service : "NOTIFICATION SERVICE (via RabbitMQ)" + details + "Notification traitee et acquittee"
+POST http://localhost:3030/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 1,
+  "toAccountId": 2,
+  "amount": 10,
+  "description": "Ex-4 : test double queue transactions + notifications"
+}
+
+### ============================================
+### EX-5 : Persistance RabbitMQ
+### Volume rabbitmqdata monte sur /var/lib/rabbitmq
+### ============================================
+
+### Test de persistance :
+### 1. Envoyer cette transaction
+### 2. Arreter notification-service : docker stop microservice-notification-service-1
+### 3. Envoyer une autre transaction (le message reste dans la queue "notifications")
+### 4. Verifier dans RabbitMQ Management UI : http://localhost:15672 (guest/guest)
+### 5. Relancer notification-service : docker start microservice-notification-service-1
+### 6. Le message est traite automatiquement (visible dans les logs)
+
+POST http://localhost:3030/transactions
+Content-Type: application/json
+
+{
+  "fromAccountId": 1,
+  "toAccountId": 2,
+  "amount": 5,
+  "description": "Ex-5 : test persistance RabbitMQ"
+}
+
+### ============================================
+### Connexion a l'interface de RabbitMQ
+### http://localhost:15672
+### Login : guest / guest
+### Onglet Queues : voir les queues "transactions" et "notifications"
+### ============================================
