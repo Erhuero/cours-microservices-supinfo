@@ -2,38 +2,13 @@ Chapitre 0: Introduction
 
 https://datatracker.ietf.org/doc/html/rfc9110
 https://developer.mozilla.org/en-US/docs/Web/HTTP
-https://aws.amazon.com/what-is/http/
-https://www.redhat.com/en/topics/api/what-is-http
-https://datatracker.ietf.org/doc/html/rfc9110
-https://docs.oracle.com/javase/tutorial/networking/urls/readingWriting.html
-https://requests.readthedocs.io/en/latest/, https://developer.mozilla.org/en-US/docs/Web/HTTP
 https://martinfowler.com/articles/richardsonMaturityModel.html
-https://learning.postman.com/docs/designing-and-developing-your-api/api-contracts/
-https://cloud.google.com/apigee/docs/api-platform/get-started/what-api, https://www.ibm.com/topics/api
-https://datatracker.ietf.org/doc/html/rfc9110
-https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch, https://restfulapi.net/http-methods/
-https://www.nginx.com/blog/api-gateways-defined/
 https://restfulapi.net/richardson-maturity-model/
-https://martinfowler.com/articles/richardsonMaturityModel.html
-https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
-https://nordicapis.com/rest-hateoas/
-
-https://nordicapis.com/a-brief-history-of-apis/
 https://martinfowler.com/articles/microservices.html
-https://www.akamai.com/blog/security/api-security-challenges
-
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods,
-https://datatracker.ietf.org/doc/html/rfc9110#name-http-methods
-https://http.dev/methods
-https://restfulapi.net/http-methods/
-https://martinfowler.com/articles/microservices.html#SmartEndpointsandDumbPipes
+https://owasp.org/www-project-api-security/
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 https://nordicapis.com/what-does-smart-endpoints-and-dumb-pipes-mean/
-
-https://microservices.io/patterns/communication-style/smart-endpoints-dumb-pipes.html
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-https://datatracker.ietf.org/doc/html/rfc9110#name-client
-https://nodejs.org/en/learn/getting-started/introduction-to-nodejs-communication/client-server-http
-https://expressjs.com/en/guide/routing.html
 
 Chapitre 1: Monolithe
 
