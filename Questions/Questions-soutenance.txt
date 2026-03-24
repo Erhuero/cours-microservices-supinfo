@@ -1,0 +1,68 @@
+Chapitre Introduction
+
+1. Comment définir HTTP et quel est son rôle dans une architecture distribuée ?
+2. Pourquoi HTTP aide-t-il les services en Java et Python à se comprendre ?
+3. C'est quoi une API ? Pourquoi dit-on qu'elle est un "contrat" ?
+4. Comment HTTP et les API fonctionnent-ils ensemble ?
+5. Quelle est la différence entre REST basique, RESTful et HATEOAS ?
+6. Pourquoi les API sont-elles devenues populaires vers 2007 ?
+7. Quels sont les problèmes des API (sécurité, vitesse, trop de demandes) ?
+8. Pourquoi utilise-t-on GET, POST, PUT, DELETE et PATCH ?
+9. Pourquoi Martin Fowler dit-il "smart endpoints, dumb pipes" ?
+10. Dans le projet AM BigBank, comment le client communique-t-il avec le serveur via HTTP ?
+
+Chapitre 1 - Monolithe
+
+11. Définissez ce qu'est un monolithe.
+12. Pourquoi modifier un fichier peut casser souvent tout le monolithe ?
+13. Pourquoi les monolithes fonctionnent-ils bien au début mais pas à l'échelle ?
+14. Définissez le scaling horizontal et vertical
+15. Pourquoi on conseille monolith first avant microservices ?
+
+Chapitre 2 - Microservices
+
+16. Définissez la loi de Conway (Conway's Law)
+17. Que veut dire "You build it, you run it" ?
+18. Définissez ce qu'est un microservice d'après le manifeste de Martin Fowler (2014).
+19. Définissez le domain driven design (DDD) et pourquoi on l'utilise dans un projet microservices.
+20. Qu'est ce que le SPOF ?
+21. Donnez un ou deux exemples où on choisirait un microservice plutôt qu'un monolithe, et pourquoi ?
+22. Qu'entend-on par programmation polyglotte dans un contexte microservices et quels sont les risques associés ?
+23. Décrivez la pyramide de tests.
+24. Qu'est-ce que le Consumer-Driven Contract Testing ?
+25. Pourquoi dit-on que l'adoption des microservices est autant un changement culturel qu'un changement technique ?
+26. Qu'est ce que le SOA ?
+27. Qu'est ce que le monolithe distribué ?
+28. Quelle est la règle de Two-Pizza Teams et qui l'a inventé ?
+29. A quoi sert l'API Gateway dans AM BigBank ?
+30. Pourquoi Uber a-t-il migré vers les microservices ?
+31. Que signifie indépendance de déploiement dans le contexte microservices ?
+
+Chapitre 3 - Conteneurisation
+
+32. Pourquoi on utilise la conteneurisation pour les microservices ?
+33. En quoi les conteneurs facilitent-ils l'onboarding des nouveaux ingénieurs ?
+34. Quelle est la différence entre une VM et Docker ?
+35. Que met-on dans un Dockerfile ?
+36. Pourquoi on utilise FROM node:20-alpine et pas Ubuntu ?
+
+Chapitre 4 - Load Balancer
+
+37. Qu'est-ce que le load balancer ?
+38. Quest-ce que le canary deployment ?
+39. Qu'est-ce que le fingerprinting ?
+40. À quoi sert le NGINX ?
+41. Quels sont les avantages de Let's Encrypt, ou et pourquoi on l'utilise ?
+42. Quels sont les cinq méthodes utilisées pour les load balancer ?
+43. Qu'est-ce que le chaos engineering ?
+44. Quels sont les avantages d'un CDN ?
+
+Chapitre 5 - RabbitMQ
+
+45. Pourquoi on utilise une communication asynchrone au lieu de synchrone ?
+46. En quel langage est écrit RabbitMQ ?
+47. A quoi sert le Dead Letter Queue ?
+48. Qu'est ce qu'un producer et un consumer ?
+49. Quels sont les avantages de la persistance des messages ?
+50. Comment RabbitMQ gère-t-il la haute disponibilité ?
+
