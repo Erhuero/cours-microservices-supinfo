@@ -1,0 +1,176 @@
+Chapitre 0: Introduction
+
+https://datatracker.ietf.org/doc/html/rfc9110
+https://developer.mozilla.org/en-US/docs/Web/HTTP
+https://aws.amazon.com/what-is/http/
+https://www.redhat.com/en/topics/api/what-is-http
+https://datatracker.ietf.org/doc/html/rfc9110
+https://docs.oracle.com/javase/tutorial/networking/urls/readingWriting.html
+https://requests.readthedocs.io/en/latest/, https://developer.mozilla.org/en-US/docs/Web/HTTP
+https://martinfowler.com/articles/richardsonMaturityModel.html
+https://learning.postman.com/docs/designing-and-developing-your-api/api-contracts/
+https://cloud.google.com/apigee/docs/api-platform/get-started/what-api, https://www.ibm.com/topics/api
+https://datatracker.ietf.org/doc/html/rfc9110
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch, https://restfulapi.net/http-methods/
+https://www.nginx.com/blog/api-gateways-defined/
+https://restfulapi.net/richardson-maturity-model/
+https://martinfowler.com/articles/richardsonMaturityModel.html
+https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+https://nordicapis.com/rest-hateoas/
+
+https://nordicapis.com/a-brief-history-of-apis/
+https://martinfowler.com/articles/microservices.html
+https://www.akamai.com/blog/security/api-security-challenges
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods,
+https://datatracker.ietf.org/doc/html/rfc9110#name-http-methods
+https://http.dev/methods
+https://restfulapi.net/http-methods/
+https://martinfowler.com/articles/microservices.html#SmartEndpointsandDumbPipes
+https://nordicapis.com/what-does-smart-endpoints-and-dumb-pipes-mean/
+
+https://microservices.io/patterns/communication-style/smart-endpoints-dumb-pipes.html
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+https://datatracker.ietf.org/doc/html/rfc9110#name-client
+https://nodejs.org/en/learn/getting-started/introduction-to-nodejs-communication/client-server-http
+https://expressjs.com/en/guide/routing.html
+
+Chapitre 1: Monolithe
+
+https://www.ibm.com/topics/monolithic-architecture
+https://aws.amazon.com/architecture/monolithic/
+https://developers.redhat.com/articles/2020/04/15/monolithic-microservices-whats-difference
+https://www.thoughtworks.com/radar/techniques/monolithic-architecture
+https://martinfowler.com/articles/monolith-first.html
+
+https://samnewman.io/building-microservices/challenges-of-monoliths/
+https://www.atlassian.com/microservices/microservices-architecture/microservices-vs-monolith
+https://martinfowler.com/articles/monolith-first.html
+
+https://www.thoughtworks.com/radar/techniques/monolithic-architecture
+https://microservices.io/patterns/refactoring/monolith-first.html
+
+https://www.oreilly.com/library/view/building-microservices/9781492034018/ch01.html
+https://cloud.google.com/architecture/scaling-vertical-horizontal
+
+https://learn.microsoft.com/en-us/azure/architecture/guide/scale/scale-out,
+https://www.digitalocean.com/community/tutorials/vertical-vs-horizontal-scaling
+https://martinfowler.com/articles/monolith-first.html
+
+https://samnewman.io/building-microservices/taking-the-monolith-first-approach/
+https://microservices.io/patterns/refactoring/monolith-first.html
+https://www.infoq.com/articles/monolith-first/
+
+Chapitre 2: Microservices
+
+https://martinfowler.com/bliki/ConwaysLaw.html
+https://www.ibm.com/think/topics/conways-law
+https://www.thoughtworks.com/radar/techniques/conways-law
+https://teamtopologies.com/conways-law
+
+https://martinfowler.com/articles/microservices.html#YouBuildItYouRunIt
+https://aws.amazon.com/devops/what-is-devops/
+https://jobs.netflix.com/culture
+
+https://martinfowler.com/articles/microservices.html
+https://microservices.io/
+https://www.infoq.com/news/2014/11/gotober-fowler-microservices/
+https://martinfowler.com/bliki/MicroservicePrematureOptimization.html
+
+https://domainlanguage.com/ddd/
+https://dddcommunity.org/
+https://www.infoq.com/microservices/what-is-ddd/
+https://martinfowler.com/bliki/DDD_Aggregates.html
+
+https://en.wikipedia.org/wiki/Single_point_of_failure
+https://aws.amazon.com/architecture/well-architected/reliability/
+ttps://www.datadoghq.com/blog/single-point-of-failure/
+
+https://martinfowler.com/articles/microservices.html
+https://netflixtechblog.com/
+https://www.uber.com/blog/engineering/
+https://aws.amazon.com/microservices/
+
+https://martinfowler.com/articles/microservices.html#PolyglotProgramming
+https://microservices.io/post/microservices-polyglot/2016/12/01/
+https://www.thoughtworks.com/radar/techniques/polyglot-persistence
+
+https://martinfowler.com/articles/practical-test-pyramid.html
+https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid
+https://circleci.com/blog/testing-pyramid/, https://www.infoq.com/articles/testing-pyramid/
+
+https://docs.pact.io/, https://docs.pact.io/introduction
+https://www.thoughtworks.com/radar/techniques/consumer-driven-contracts
+
+https://martinfowler.com/articles/microservices.html
+https://www.infoq.com/articles/microservices-culture/
+
+https://docs.oasis-open.org/soa-rm/v1.0/soa-rm.html
+https://en.wikipedia.org/wiki/Service-oriented_architecture
+https://www.redhat.com/en/topics/microservices/soa-vs-microservices
+
+https://microservices.io/patterns/refactoring/distributed-monolith.html
+https://www.infoq.com/articles/microservices-anti-patterns/, https://samnewman.io/building-microservices/common-mistakes/
+
+https://echometerapp.com/en/amazon-work-culture-two-pizza-team-rule
+https://www.aboutamazon.com/news/workplace/two-pizza-teams-amazon
+https://www.atlassian.com/team-playbook/plays/two-pizza-teams
+
+https://docs.konghq.com/gateway/latest/, https://aws.amazon.com/api-gateway/
+https://docs.nginx.com/nginx/admin-guide/api-gateway/
+https://www.uber.com/blog/microservices-lessons/, https://eng.uber.com/microservices-architecture/
+https://www.uber.com/blog/engineering/
+
+https://martinfowler.com/articles/microservices.html#ComponentizationviServices
+https://12factor.net/disposability
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/, https://microservices.io/patterns/deployment-strategy/blue-green-deployment.html
+
+Chapitre 3: Conteneurisation
+
+https://docs.docker.com/get-started/docker-overview/
+https://www.cncf.io/reports/cncf-annual-survey/
+https://www.redhat.com/en/topics/containers
+https://kubernetes.io/docs/concepts/containers/
+https://docs.docker.com/get-started/docker-overview/
+https://www.docker.com/blog/docker-onboarding/
+https://www.cncf.io/blog/2021/11/18/the-role-of-containers-in-developer-onboarding/
+https://dev.to/docker/onboarding-with-docker-1k0k
+https://www.docker.com/resources/what-container/
+https://www.redhat.com/en/topics/containers/containers-vs-vms, https://aws.amazon.com/containers/vm-vs-container/
+https://learn.microsoft.com/en-us/virtualization/windowscontainers/about/containers-vs-vm
+https://docs.docker.com/reference/dockerfile/, https://docs.docker.com/build/building/best-practices/
+https://docs.docker.com/build/guide/layers/, https://hub.docker.com/_/node
+https://hub.docker.com/_/node, https://docs.docker.com/build/building/best-practices/#leverage-build-cache
+
+Chapitre 4: Load Balancer
+
+https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/,
+https://letsencrypt.org/,
+https://principlesofchaos.org/,
+https://www.cloudflare.com/learning/cdn/what-is-a-cdn/,
+https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#canary-deployments,
+https://nginx.org/en/docs/,
+https://www.haproxy.org/,
+https://aws.amazon.com/elasticloadbalancing/,
+https://blog.cloudflare.com/http-fingerprinting-for-everyone/,
+https://flagger.app/,
+https://certbot.eff.org/,
+https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/load_balancing/load_balancing,
+https://netflix.github.io/chaosmonkey/ [nginx](https://nginx.org/en/docs/)
+
+Chapitre 5: RabbitMQ
+
+https://www.rabbitmq.com/documentation.html,
+https://www.rabbitmq.com/docs/clustering,
+
+https://www.rabbitmq.com/docs/dlx,
+https://www.erlang.org/,
+https://www.rabbitmq.com/tutorials/tutorial-one-python.html,
+https://kafka.apache.org/uses,
+
+https://aws.amazon.com/sqs/features/,
+https://www.rabbitmq.com/docs/getstarted,
+https://www.rabbitmq.com/blog/2020/06/04/rabbitmq-cluster-formation-and-membership-management.html,
+https://pact.by/blog/2020/12/21/about-consumer-driven-contract-testing/,
+
+https://www.rabbitmq.com/partitions.html [github](https://github.com/rabbitmq/testing-docusaurus/blob/master/docs/concepts/high-availability.md)
